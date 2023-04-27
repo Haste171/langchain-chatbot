@@ -46,3 +46,4 @@ The LangChain Chatbot was developed by [Haste171](https://github.com/Haste171) w
 The LangChain Chatbot is released under the [MIT License](https://opensource.org/licenses/MIT).
 
 ## Preview
+![Code_OfUObeLsfm](https://user-images.githubusercontent.com/34923485/234956872-7e56ba7b-1935-45fc-9384-f18e464dd6ae.gif)
