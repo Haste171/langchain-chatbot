@@ -22,15 +22,7 @@ Pinecone Environment: {Fore.BLUE}{pinecone_environment}{Fore.WHITE}
 Pinecone Index: {Fore.BLUE}{pinecone_index}{Fore.WHITE}
 Pinecone Namespace: {Fore.GREEN}{pinecone_namespace}{Fore.WHITE}
 """
-
-demo = f"""{Fore.WHITE}Using the following credentials:{Fore.WHITE}
-OpenAI API Key: {Fore.RED}...{Fore.WHITE}
-Pinecone API Key: {Fore.BLUE}...{Fore.WHITE}
-Pinecone Environment: {Fore.BLUE}...{Fore.WHITE}
-Pinecone Index: {Fore.BLUE}...{Fore.WHITE}
-Pinecone Namespace: {Fore.GREEN}...{Fore.WHITE}
-"""
-print(demo)
+print(startup)
 
 r = input('Do you want to ingest? (Y/N): ')
 
