@@ -30,7 +30,7 @@ Sources (Cites): {Fore.MAGENTA}{source_amount}{Fore.WHITE}
 """
 print(startup)
 
-r = input('Do you want to use Pinecone index? (Y/N): ')
+r = input('Do you want to use Pinecone? (Y/N): ')
 if r == 'Y' and pinecone_api_key != '':
     use_pinecone = True
 else:
@@ -57,7 +57,6 @@ else:
 process = query(openai_api_key=openai_api_key, pinecone_api_key=pinecone_api_key,
                 pinecone_environment=pinecone_environment, pinecone_index=pinecone_index,
                 pinecone_namespace=pinecone_namespace, temperature=temperature, sources=source_amount, use_pinecone=use_pinecone)
-
 
 def chat_loop():
     chat_history = []
@@ -91,11 +90,6 @@ def chat_loop():
             }
             parsed_documents.append(parsed_doc)
 
-        # response_dict = {
-        #     'answer': result["answer"],
-        #     'sources': result['source_documents']
-        # }
-
         print(
             f'{Fore.BLUE}{Style.BRIGHT}AI:{Fore.RESET}{Style.NORMAL} {result["answer"]}')
         chat_history.append((query, result["answer"]))
@@ -110,6 +104,5 @@ def chat_loop():
         # Write chat history to a JSON file
         with open('chat_history.json', 'w') as json_file:
             json.dump(chat_history, json_file, ensure_ascii=False, indent=4)
-
 
 chat_loop()
