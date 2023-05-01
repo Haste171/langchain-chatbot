@@ -120,6 +120,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+vectorstore
 
 # Spyder project settings
 .spyderproject

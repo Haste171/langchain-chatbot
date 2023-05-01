@@ -30,5 +30,4 @@ def query(openai_api_key, pinecone_api_key, pinecone_environment, pinecone_index
                                          "k": sources},  qa_template=QA_PROMPT, question_generator_template=CONDENSE_PROMPT)  # 9 is the max sources
     qa = ConversationalRetrievalChain.from_llm(
         llm=model, retriever=retriever, return_source_documents=True)
-
     return qa
