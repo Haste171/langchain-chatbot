@@ -39,7 +39,7 @@ else:
 
 r = input('Do you want to ingest? (Y/N): ')
 
-os.system('cls')
+# os.system('cls')
 if r == 'Y':
     ingest_response = ingest(openai_api_key=openai_api_key, pinecone_api_key=pinecone_api_key,
                              pinecone_environment=pinecone_environment, pinecone_index=pinecone_index,
