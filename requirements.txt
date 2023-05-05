@@ -70,7 +70,7 @@ Pillow==9.5.0
 pinecone-client==2.2.1
 posthog==3.0.1
 protobuf==3.20.3
-psycopg2==2.9.6
+psycopg2-binary==2.9.6
 pyarrow==11.0.0
 pydantic==1.10.7
 pydeck==0.8.1b0
