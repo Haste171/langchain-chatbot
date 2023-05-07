@@ -24,10 +24,10 @@ def main():
     col1, col2, col3, col4 = st.columns(4)
 
     with col1:
-        openai_api_key = st.text_input("OpenAI API Key")
+        openai_api_key = st.text_input("OpenAI API Key", type="password")
 
     with col2:
-        pinecone_api_key = st.text_input("Pinecone API Key")
+        pinecone_api_key = st.text_input("Pinecone API Key", type="password")
 
     with col3:
         pinecone_environment = st.text_input("Pinecone Environment")
@@ -35,9 +35,6 @@ def main():
     with col4:
         pinecone_index = st.text_input("Pinecone Index Name")
 
-    if openai_api_key:
-        st.write("Using key:", openai_api_key)
-        
 
     uploaded_files = st.file_uploader("Upload multiple files", accept_multiple_files=True, type="pdf")
 
