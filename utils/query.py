@@ -3,6 +3,8 @@ from langchain.chains import ConversationalRetrievalChain
 from langchain.chat_models import ChatOpenAI
 from langchain.vectorstores import Pinecone
 import pinecone
+
+#find out what QA_PROMPT and CONDENSE_PROMPT are
 from templates.qa_prompt import QA_PROMPT
 from templates.condense_prompt import CONDENSE_PROMPT
 from langchain.vectorstores import Chroma
@@ -24,7 +26,8 @@ def query(openai_api_key, pinecone_api_key, pinecone_environment, pinecone_index
         vectorstore = Chroma(
             persist_directory=persist_directory, embedding_function=embeddings, collection_name="my_collection")
 
-    model = ChatOpenAI(model_name='gpt-3.5-turbo', temperature=temperature,
+#changed model to GPT-4
+    model = ChatOpenAI(model_name='gpt-4', temperature=temperature,
                        openai_api_key=openai_api_key, streaming=True)  # max temperature is 2 least is 0
     retriever = vectorstore.as_retriever(search_kwargs={
                                          "k": sources},  qa_template=QA_PROMPT, question_generator_template=CONDENSE_PROMPT)  # 9 is the max sources

@@ -13,7 +13,7 @@ openai_api_key = os.environ.get('OPENAI_API_KEY')
 pinecone_api_key = os.environ.get('PINECONE_API_KEY')
 pinecone_environment = os.environ.get('PINECONE_ENVIRONMENT')
 pinecone_index = os.environ.get('PINECONE_INDEX')
-pinecone_namespace = 'testing-pdf-0001'
+pinecone_namespace = 'Waitless'
 temperature = 0.7
 source_amount = 4
 
@@ -61,12 +61,13 @@ process = query(openai_api_key=openai_api_key, pinecone_api_key=pinecone_api_key
 def chat_loop():
     chat_history = []
     while True:
-        query = input("Please enter your question (or type 'exit' to end): ")
+        query = input("You are a friendly AI waiter that has a menu that it can acces. Your goal is to find the perfext item from the menu for the user by asking multiple rounds of well thought questions to determine the users flavor proile and match that to the menu items. (or type 'exit' to end): ")
         if query.lower() == 'exit':
             break
         result = process({"question": query, "chat_history": chat_history})
         source_documents = result['source_documents']
 
+#Might need to change the metadata types more relevant to the use case
         parsed_documents = []
         for doc in source_documents:
             parsed_doc = {

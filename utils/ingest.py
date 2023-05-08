@@ -10,8 +10,9 @@ def ingest(openai_api_key, pinecone_api_key, pinecone_environment, pinecone_inde
     loader = DirectoryLoader('docs', glob="**/*.pdf", loader_cls=PyMuPDFLoader)
     documents = loader.load()
 
+#reduce chunc size to 100 and overlap to 10
     text_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=2000, chunk_overlap=100)
+        chunk_size=100, chunk_overlap=10)
     documents = text_splitter.split_documents(documents)
     embeddings = OpenAIEmbeddings(
         model='text-embedding-ada-002', openai_api_key=openai_api_key)
