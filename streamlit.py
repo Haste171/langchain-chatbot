@@ -18,8 +18,8 @@ pinecone_namespace ='testing-pdf-2389203901'
 
 def main():
     # Set Streamlit app title and header
-    st.title('Langchain Chat')
-    st.header('PDF Mode')
+    st.title('Waitless Chatbot')
+    st.header('Menu Mode')
 
     col1, col2, col3, col4 = st.columns(4)
 
@@ -48,7 +48,7 @@ def main():
                     file.write(file_content)
             loader = DirectoryLoader(tmpdir, glob="**/*.pdf", loader_cls=PyMuPDFLoader)
             documents = loader.load()
-            text_splitter = RecursiveCharacterTextSplitter(chunk_size=2000, chunk_overlap=100)
+            text_splitter = RecursiveCharacterTextSplitter(chunk_size=200, chunk_overlap=20)
             documents = text_splitter.split_documents(documents)
 
             pinecone.init(
@@ -71,7 +71,7 @@ def main():
         pinecone.init(api_key=pinecone_api_key,environment=pinecone_environment)
         vectorstore = Pinecone.from_existing_index(index_name=pinecone_index, embedding=embeddings, text_key='text', namespace=pinecone_namespace)
 
-        model = ChatOpenAI(model_name='gpt-3.5-turbo', temperature=temperature, openai_api_key=openai_api_key, streaming=True) # max temperature is 2 least is 0
+        model = ChatOpenAI(model_name='gpt-4', temperature=temperature, openai_api_key=openai_api_key, streaming=True) # max temperature is 2 least is 0
         retriever = vectorstore.as_retriever(search_kwargs={"k": source_amount},  qa_template=QA_PROMPT, question_generator_template=CONDENSE_PROMPT) # 9 is the max sources
         qa = ConversationalRetrievalChain.from_llm(llm=model, retriever=retriever, return_source_documents=True)
         result = qa({"question": message, "chat_history": chat_history})
@@ -103,7 +103,7 @@ def main():
         
 
         # Display the response in the Streamlit app
-        st.write('AI:')
+        st.write('Waitless:')
         st.write(answer)
         for doc in parsed_documents:
             st.write(f"Source:", doc["metadata"]["source"])

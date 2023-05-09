@@ -44,7 +44,7 @@ def get_answer(message, temperature=0.7, source_amount=4):
                   environment=pinecone_environment_env)
     vectorstore = Pinecone.from_existing_index(
         index_name=pinecone_index_env, embedding=embeddings, text_key='text', namespace=pinecone_namespace)
-    model = ChatOpenAI(model_name='gpt-3.5-turbo', temperature=temperature,
+    model = ChatOpenAI(model_name='gpt-4', temperature=temperature,
                        openai_api_key=openai_api_key_env, streaming=False)  # max temperature is 2 least is 0
     retriever = vectorstore.as_retriever(search_kwargs={
         "k": source_amount},  qa_template=QA_PROMPT, question_generator_template=CONDENSE_PROMPT)  # 9 is the max sources
@@ -114,7 +114,7 @@ class Ingest(Resource):
                 app.config['UPLOAD_FOLDER'], glob="**/*.pdf", loader_cls=PyMuPDFLoader)
             documents = loader.load()
             text_splitter = RecursiveCharacterTextSplitter(
-                chunk_size=1000, chunk_overlap=100)
+                chunk_size=200, chunk_overlap=20)
             documents = text_splitter.split_documents(documents)
 
             pinecone.init(

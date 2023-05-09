@@ -154,3 +154,4 @@ cython_debug/
 #.idea/
 
 create_pinecone_index.py
+query 2.0.py

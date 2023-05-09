@@ -12,7 +12,7 @@ def ingest(openai_api_key, pinecone_api_key, pinecone_environment, pinecone_inde
 
 #reduce chunc size to 100 and overlap to 10
     text_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=100, chunk_overlap=10)
+        chunk_size=200, chunk_overlap=20)
     documents = text_splitter.split_documents(documents)
     embeddings = OpenAIEmbeddings(
         model='text-embedding-ada-002', openai_api_key=openai_api_key)

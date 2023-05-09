@@ -13,7 +13,7 @@ openai_api_key = os.environ.get('OPENAI_API_KEY')
 pinecone_api_key = os.environ.get('PINECONE_API_KEY')
 pinecone_environment = os.environ.get('PINECONE_ENVIRONMENT')
 pinecone_index = os.environ.get('PINECONE_INDEX')
-pinecone_namespace = 'Waitless'
+pinecone_namespace = 'testing-pdf-2389203901'
 temperature = 0.7
 source_amount = 4
 
@@ -58,10 +58,15 @@ process = query(openai_api_key=openai_api_key, pinecone_api_key=pinecone_api_key
                 pinecone_environment=pinecone_environment, pinecone_index=pinecone_index,
                 pinecone_namespace=pinecone_namespace, temperature=temperature, sources=source_amount, use_pinecone=use_pinecone)
 
+
+##add conversational agent instead of oldskool chatbot
+
+
+
 def chat_loop():
     chat_history = []
     while True:
-        query = input("You are a friendly AI waiter that has a menu that it can acces. Your goal is to find the perfext item from the menu for the user by asking multiple rounds of well thought questions to determine the users flavor proile and match that to the menu items. (or type 'exit' to end): ")
+        query = input("Waitless ")
         if query.lower() == 'exit':
             break
         result = process({"question": query, "chat_history": chat_history})
