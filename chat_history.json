@@ -4,27 +4,7 @@
         "Hello! How can I help you today?"
     ],
     [
-        "I'm looking for a drink",
-        "We have several drink options available:\n\n1. Frozen Strawberry Daiquiri: Pampero white rum, fresh lime juice, sugar syrup, and strawberries.\n2. Classic Daiquiri: Pampero white rum, fresh lime juice, sugar syrup.\n3. Mexican Mule: El Jimador Tequila, fresh ginger & lime, ginger, and a dash of Habanero bitters.\n4. Bloody Maria: Tell us your preferred level of spice.\n5. Jamaican Mule: Sailor Jerry’s spiced rum, fresh lime, ginger beer, and a dash of Orange bitters.\n6. Vodka Cocktails: White Russian - Ketel 1 vodka, Kahlua, cream.\n7. Frozen Pina Colada: Pampero rum, coconut cream, sugar, and fresh pineapple.\n8. Caribbean Swizzle: Koko Kanu rum, fresh lime, pineapple juice, with a touch of agave syrup."
-    ],
-    [
-        "Can you help me find one that in like?",
-        "Of course! Based on the drinks provided, here are a few options:\n\n1. If you enjoy fruity and tropical flavors, try the FROZEN PINA COLADA or the CARIBBEAN SWIZZLE.\n2. If you prefer a classic cocktail, go for the CLASSIC DAIQUIRI.\n3. For a unique and adventurous option, give the MEXICAN MULE a try.\n\nLet me know if you have any specific preferences, and I can narrow down the options for you."
-    ],
-    [
-        "I like a little sour, but too much as the drink should be fresh and moderate in alcohol.",
-        "Based on the provided context, the Pisco Sour would be a good choice for a drink that is sour, fresh, and moderate in alcohol content. It contains Pisco, fresh lemon juice, sugar syrup, egg white, and bitters."
-    ],
-    [
-        "What was the first coktail you mentioned?c",
-        "The first cocktail mentioned in the list of drink options is the Sazerac."
-    ],
-    [
-        "No, I mean in our chat",
-        "The first cocktail mentioned in our chat conversation is the Sazerac."
-    ],
-    [
-        "No, look, it was the strawberry daiquiry",
-        "The first cocktail mentioned in our chat conversation is Sazerac."
+        "I'm looking for a drink tht sweet, but refreshing",
+        "Some sweet and refreshing drink options from the provided list are:\n\n1. Frozen Strawberry Daiquiri: Pampero white rum, fresh lime juice, sugar syrup, and strawberries.\n2. Frozen Pina Colada: Pampero rum, coconut cream, sugar, and fresh pineapple.\n3. Caribbean Swizzle: Koko Kanu rum, fresh lime, pineapple juice, with a touch of agave syrup."
     ]
 ]

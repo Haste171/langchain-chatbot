@@ -18,8 +18,8 @@ pinecone_namespace ='testing-pdf-2389203901'
 
 def main():
     # Set Streamlit app title and header
-    st.title('Waitless Chatbot')
-    st.header('Menu Mode')
+    st.title('Workreel Chatbot')
+    st.header('Job Mode')
 
     col1, col2, col3, col4 = st.columns(4)
 
