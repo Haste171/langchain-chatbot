@@ -78,20 +78,20 @@ def chat_loop():
             parsed_doc = {
                 "page_content": doc.page_content,
                 "metadata": {
-                    "author": doc.metadata.get("author", ""),
-                    "creationDate": doc.metadata.get("creationDate", ""),
-                    "creator": doc.metadata.get("creator", ""),
+                    "ingredients": doc.metadata.get("ingredients", ""),
+                    "item name": doc.metadata.get("item name", ""),
+                    #"creator": doc.metadata.get("creator", ""),
                     "file_path": doc.metadata.get("file_path", ""),
-                    "format": doc.metadata.get("format", ""),
-                    "keywords": doc.metadata.get("keywords", ""),
-                    "modDate": doc.metadata.get("modDate", ""),
+                    #3format": doc.metadata.get("format", ""),
+                    #"keywords": doc.metadata.get("keywords", ""),
+                    #"modDate": doc.metadata.get("modDate", ""),
                     "page_number": doc.metadata.get("page_number", 0),
-                    "producer": doc.metadata.get("producer", ""),
+                   # "producer": doc.metadata.get("producer", ""),
                     "source": doc.metadata.get("source", ""),
-                    "subject": doc.metadata.get("subject", ""),
-                    "title": doc.metadata.get("title", ""),
-                    "total_pages": doc.metadata.get("total_pages", 0),
-                    "trapped": doc.metadata.get("trapped", "")
+                   # "subject": doc.metadata.get("subject", ""),
+                   # "title": doc.metadata.get("title", ""),
+                   # "total_pages": doc.metadata.get("total_pages", 0),
+                   # "trapped": doc.metadata.get("trapped", "")
                 }
             }
             parsed_documents.append(parsed_doc)
