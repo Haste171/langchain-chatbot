@@ -66,7 +66,7 @@ process = query(openai_api_key=openai_api_key, pinecone_api_key=pinecone_api_key
 def chat_loop():
     chat_history = []
     while True:
-        query = input("Waitless ")
+        query = input("You ")
         if query.lower() == 'exit':
             break
         result = process({"question": query, "chat_history": chat_history})
