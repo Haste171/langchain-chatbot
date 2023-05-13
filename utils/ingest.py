@@ -1,11 +1,4 @@
-from langchain.embeddings.openai import OpenAIEmbeddings
-from langchain.document_loaders import DirectoryLoader, PyMuPDFLoader
-from langchain.vectorstores import Pinecone
-import pinecone
-from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.vectorstores import Chroma
-
-
+# Function to ingest documents into Pinecone or a local vectorstore
 def ingest(openai_api_key, pinecone_api_key, pinecone_environment, pinecone_index, pinecone_namespace, use_pinecone):
     loader = DirectoryLoader('docs', glob="**/*.pdf", loader_cls=PyMuPDFLoader)
     documents = loader.load()
