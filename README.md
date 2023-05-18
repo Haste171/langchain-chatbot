@@ -19,6 +19,7 @@
 <!-- *The LangChain Chatbot is an AI chat interface for the open-source library LangChain. It provides conversational answers to questions about vector ingested documents.* -->
 
 Maintained by Developers of [legalyze.ai](https://legalyze.ai)
+
 # 🚀 Installation
 
 ## Pre-Setup
