@@ -6,6 +6,7 @@
 
 <p align="center">
 <b>Efficiently use Langchain for Complex Tasks</b>
+Maintained by Developers of [legalyze.ai](https://legalyze.ai)
 </p>
 
 <p align=center>
