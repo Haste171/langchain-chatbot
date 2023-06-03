@@ -6,7 +6,6 @@
 
 <p align="center">
 <b>Efficiently use Langchain for Complex Tasks</b>
-</b>Existing repo development is at a freeze while we develop a langchain chat bot website :)</b>
 </p>
 
 <p align=center>
@@ -20,79 +19,56 @@
 <!-- *The LangChain Chatbot is an AI chat interface for the open-source library LangChain. It provides conversational answers to questions about vector ingested documents.* -->
 <!-- *Existing repo development is at a freeze while we develop a langchain chat bot website :)* -->
 
-Maintained by Developers of [legalyze.ai](https://legalyze.ai)
 
 # 🚀 Installation
 
-## Pre-Setup
+## User-Setup
+You can either join the [Discord](https://discord.gg/8vzXR9MGyc) server to use the bot or invite the [Langchain Chatbot](https://discord.com/api/oauth2/authorize?client_id=1113492778899476533&permissions=8&scope=bot) to your own server.
+
+*If not you can following to steps below to setup your own Langchain Chatbot*
+
+## Dev-Setup
 Prerequisites:
-- [Python](https://www.python.org/downloads/)
-- [Git](https://git-scm.com/downloads)
-- [OpenAI API Key](https://platform.openai.com/)
+- [Git](https://git-scm.com/downloads) - Free
+- [Docker](https://www.docker.com/products/docker-desktop/) - Free
+- [Discord Bot](https://discord.com/developers/applications) - Free
+- [Mongo Database](https://youtu.be/dnEfQhjZgw0?t=326) - Free
+- [Pinecone Database](https://youtu.be/tp0bQNDtLPc?t=48) - Free
+- [OpenAI API Key](https://platform.openai.com/account/api-keys) - Billing Required
 
 ## Setup
 ```
 git clone https://github.com/Haste171/langchain-chatbot.git
 ```
 
-*Recommended to use a virtual environment*
-```
-pip install -r requirements.txt
-```
-
-Reference [example.env](https://github.com/Haste171/langchain-chatbot/blob/main/example.env) to create credentials file
+Reference [example.env](https://github.com/Haste171/langchain-chatbot/blob/main/example.env) to create `.env` file
 ```python
-OPENAI_API_KEY=
+BOT_TOKEN=
+MONGO_URI=
 PINECONE_API_KEY=
-PINECONE_ENVIRONMENT=
 PINECONE_INDEX=
+PINECONE_ENV=
 ```
 
-**Run Terminal Interface**
+*Recommended to use a Docker Container for Deployment*
 ```
-python chatbot.py
+docker build -t langchain-chatbot .
+docker run -d langchain-chatbot
 ```
-
-**Run Chat Interface**
-```
-streamlit run streamlit.py
-```
-
-## In-App Usage
-<details>
-  <summary>Click to expand</summary>
-
-  ## Terminal
-
-  For usage of the terminal interface place files in the docs folder to be ingested
-
-  Once Files are ingested one can choose to ingest more files in future usage or just query the existing vector database
-
-  ## Chat Interface
-
-  For usage of the chat interface upload files directly to the `Browse Files` section
-
-  ## All
-  - Temperature:
-  The amount of creativity/burstiness the AI will use when querying files
-  - Sources:
-  The amount of sources the AI will base it's answer off of and use for context
-
-
-  
-</details>
-
 
 # 🔧 Key Features
 
-- Conversational answers with chat history
-- Compatibility for PDF documents (more soon)
-- Local and external vector database compatibility 
+✅ Credential Manager (OpenAI Keys)
+
+✅ Space Manager (Ingestions)
+
+✅ Documentation Ingester (For readthedocs.io sites)
+
 
 Soon:
-- Externally hosted user accessible chat interface 
 - Compatibility with multiple files types (Llama Index)
 - Compatibility with offline models (HuggingFace, Vicuna, Alpaca)
+- Re-adding PDF Ingester Will be implemented along with docx, doc, excel, etc.
 
 # 💻 Contributing
 
@@ -112,9 +88,8 @@ The LangChain Chatbot was developed by [Haste171](https://github.com/Haste171) w
 
 The LangChain Chatbot is released under the [MIT License](https://opensource.org/licenses/MIT).
 
-# 💻 Terminal
-![preview_1](https://user-images.githubusercontent.com/34923485/235280558-9e7ebe85-6cf3-45fb-b063-dd3b3705c5de.png)
-![preview_2](https://user-images.githubusercontent.com/34923485/235280562-ab4685dc-fe5a-46b5-925d-4fe2670f2618.png)
-
 # 💻 Interface
-![fixed-prev](https://user-images.githubusercontent.com/34923485/235337390-1b9bf06a-2512-4e22-87c7-8559533eb9d3.png)
+![fixed-prev](https://cdn.discordapp.com/attachments/1114412425115086888/1114420571833376768/image.png)
+![fixed-prev](https://cdn.discordapp.com/attachments/1114412425115086888/1114421482429354065/image.png)
+
+Maintained by Developers of [legalyze.ai](https://legalyze.ai)

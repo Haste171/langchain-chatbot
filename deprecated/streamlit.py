@@ -1,5 +1,5 @@
 # The following code imports necessary libraries and modules
-import streamlit as st
+import deprecated.streamlit as st
 import tempfile
 import os 
 from langchain.document_loaders import DirectoryLoader, PyMuPDFLoader
