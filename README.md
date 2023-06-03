@@ -36,7 +36,7 @@ Prerequisites:
 - [Pinecone Database](https://youtu.be/tp0bQNDtLPc?t=48) - Free
 - [OpenAI API Key](https://platform.openai.com/account/api-keys) - Billing Required
 
-## Setup
+### Setup
 ```
 git clone https://github.com/Haste171/langchain-chatbot.git
 ```
