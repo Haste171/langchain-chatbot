@@ -15,8 +15,8 @@ def extensions(client: Client, directory: str):
         if module not in "__init__.py" and module[-3:] == ".py"
     ]
 
-    if modules or modules == []:
-        print("Importing extensions:", len(modules), ", ".join(modules))
+    if modules:
+        print(f"Importing extensions: {len(modules)}, {', '.join(modules)}")
     else:
         print("Could not import any extensions!")
 
