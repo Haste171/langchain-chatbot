@@ -118,7 +118,7 @@ typing-inspect==0.8.0
 typing_extensions==4.5.0
 tzdata==2021.5
 tzlocal==4.3
-urllib3==1.26.15
+urllib3==1.26.18
 uvicorn==0.21.1
 validators==0.20.0
 watchdog==3.0.0
