@@ -1,16 +1,15 @@
 [tool.poetry]
 name = "langchain-chatbot"
 version = "0.1.0"
-description = "A langchain project."
+description = ""
 authors = ["David Peterson <34923485+Haste171@users.noreply.github.com>"]
 license = "MIT"
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
-langchain = "^0.0.325"
-pinecone-client = "^2.2.4"
-fastapi = "^0.104.0"
+langchain = "^0.0.338"
+fastapi = "^0.104.1"
 
 
 [build-system]
