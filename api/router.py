@@ -2,7 +2,6 @@ from fastapi import APIRouter
 
 router = APIRouter()
 
-@router.get("/router")
-async def root():
-    return {"message": "Routing Manager is running!"}
+from api.chat import retrieval
 
+router.include_router(retrieval.router, tags=["chat"])
