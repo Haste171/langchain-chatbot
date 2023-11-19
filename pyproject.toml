@@ -10,6 +10,8 @@ readme = "README.md"
 python = "^3.11"
 langchain = "^0.0.338"
 fastapi = "^0.104.1"
+uvicorn = "^0.24.0.post1"
+gunicorn = "^21.2.0"
 
 
 [build-system]
