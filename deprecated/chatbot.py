@@ -1,13 +1,9 @@
 # Import necessary modules
-from colorama import init, Fore, Style
 import os
 import json
 from utils.ingest import ingest
 from utils.query import query
 from dotenv import load_dotenv
-
-# Initialize colorama module
-init()
 
 # Load environment variables
 load_dotenv()
@@ -21,53 +17,8 @@ pinecone_namespace = 'testing-pdf-0001'
 temperature = 0.7
 source_amount = 4
 
-# Print the startup display
-print(f"""{Fore.WHITE}Using the following credentials:{Fore.WHITE}
-OpenAI API Key: {Fore.RED}{openai_api_key}{Fore.WHITE}
-Pinecone API Key: {Fore.BLUE}{pinecone_api_key}{Fore.WHITE}
-Pinecone Environment: {Fore.BLUE}{pinecone_environment}{Fore.WHITE}
-Pinecone Index: {Fore.BLUE}{pinecone_index}{Fore.WHITE}
-Pinecone Namespace: {Fore.GREEN}{pinecone_namespace}{Fore.WHITE}
-
-{Fore.WHITE}Using the following settings:{Fore.WHITE}
-Temperature (Creativity): {Fore.MAGENTA}{temperature}{Fore.WHITE}
-Sources (Cites): {Fore.MAGENTA}{source_amount}{Fore.WHITE}
-""")
-
 # Check whether the user wants to use Pinecone
-r = input('Do you want to use Pinecone? (Y/N): ')
-if r == 'Y' and pinecone_api_key != '':
-    use_pinecone = True
-else:
-    print('Not using Pinecone or empty Pinecone API key provided. Using Chroma instead')
-    use_pinecone = False
-
-# Check whether the user wants to ingest
-r = input('Do you want to ingest? (Y/N): ')
-
-# If the user wants to ingest, call the ingest function
-if r == 'Y':
-    ingest_response = ingest(openai_api_key=openai_api_key, pinecone_api_key=pinecone_api_key,
-                             pinecone_environment=pinecone_environment, pinecone_index=pinecone_index,
-                             pinecone_namespace=pinecone_namespace, use_pinecone=use_pinecone)
-    print(ingest_response)
-
-# If the user doesn't want to ingest, check whether to use Pinecone or Chroma
-elif r == 'N':
-    if use_pinecone:
-        print('Using already ingested namespace at Pinecone.')
-    else:
-        print('Using already ingested vectors at ./vectorstore.')
-
-# If no method provided, skip
-else:
-    print('No method given, passing')
-    pass
-
-# Call the query function and set up a chat loop
-process = query(openai_api_key=openai_api_key, pinecone_api_key=pinecone_api_key,
-                pinecone_environment=pinecone_environment, pinecone_index=pinecone_index,
-                pinecone_namespace=pinecone_namespace, temperature=temperature, sources=source_amount, use_pinecone=use_pinecone)
+use_pinecone = True if pinecone_api_key else False
 
 def chat_loop():
     # Set up chat history list
