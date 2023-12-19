@@ -39,7 +39,15 @@ Prerequisites:
 ### Setup
 ```
 git clone https://github.com/Haste171/langchain-chatbot.git
+cd langchain-chatbot
+pip install -r requirements.txt
 ```
+### Run the FastAPI Application
+Ensure you have installed FastAPI and Uvicorn, then run the following commands:
+```
+uvicorn app.main:app --reload
+```
+This will start the FastAPI server, making the Langchain Chatbot API available at `http://localhost:8000` where you can send request to the endpoints specified.
 
 Reference [example.env](https://github.com/Haste171/langchain-chatbot/blob/main/example.env) to create `.env` file
 ```python
@@ -56,7 +64,10 @@ docker build -t langchain-chatbot .
 docker run -d langchain-chatbot
 ```
 
-# 🔧 Key Features
+# 
+
+✅ FastAPI based Web API Integration
+✅ Ingest and Query through RESTful Endpoints🔧 Key Features
 
 ✅ Credential Manager (OpenAI Keys)
 
@@ -93,3 +104,34 @@ The LangChain Chatbot is released under the [MIT License](https://opensource.org
 ![fixed-prev](https://cdn.discordapp.com/attachments/1114412425115086888/1114421482429354065/image.png)
 
 Maintained by Developers of [legalyze.ai](https://legalyze.ai)
+
+# 📄 API Usage
+Here's how you can interact with the API:
+
+### Ingest Data
+Send a POST request to `/ingest` to ingest data:
+```python
+import requests
+response = requests.post('http://localhost:8000/ingest')
+print(response.json())
+```
+Expect a confirmation response that the data has been ingested.
+
+### Query Data
+Send a GET request to `/query/{question}` with your question:
+```python
+import requests
+question = 'What is the answer to my question?'
+response = requests.get(f'http://localhost:8000/query/{question}')
+print(response.json())
+```
+
+### Chat History
+Retrieve the chat history by sending a GET request to `/chat_history`:
+```python
+import requests
+response = requests.get('http://localhost:8000/chat_history')
+print(response.json())
+```
+
+These endpoints will allow you to ingest, query, and view the history of interactions with the Langchain Chatbot API.
