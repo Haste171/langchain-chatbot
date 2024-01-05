@@ -8,6 +8,9 @@ token = os.environ.get('BOT_TOKEN')
 
 bot = interactions.Client(token=token)
 
+
+# testing client
+
 def extensions(client: Client, directory: str):
     modules = [
         module[:-3]
