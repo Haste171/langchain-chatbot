@@ -56,6 +56,20 @@ docker build -t langchain-chatbot .
 docker run -d langchain-chatbot
 ```
 
+### Poetry Setup
+To manage dependencies and virtual environments, Langchain Chatbot uses Poetry.
+
+1. Install Poetry by following the instructions on the [official poetry documentation](https://python-poetry.org/docs/#installation).
+2. Initialize the project with Poetry to install dependencies:
+   ```bash
+   poetry install
+   ```
+3. Create a `.env` file as per the existing instructions above.
+4. Run the Langchain Chatbot using Poetry:
+   ```bash
+   poetry run python main.py
+   ```
+
 # 🔧 Key Features
 
 ✅ Credential Manager (OpenAI Keys)
