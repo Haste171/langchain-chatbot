@@ -66,7 +66,7 @@ openai==0.27.4
 openapi-schema-pydantic==1.2.4
 packaging==23.0
 pandas==1.5.3
-Pillow==9.5.0
+Pillow==10.2.0
 pinecone-client==2.2.1
 posthog==3.0.1
 protobuf==3.20.3
@@ -113,7 +113,7 @@ torch==2.0.0
 torchvision==0.15.1
 tornado==6.3.1
 tqdm==4.65.0
-transformers==4.28.1
+transformers==4.37.0
 typing-inspect==0.8.0
 typing_extensions==4.5.0
 tzdata==2021.5
