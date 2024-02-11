@@ -7,3 +7,4 @@ pinecone-client==2.2.1
 bs4==0.0.1
 python-dotenv==1.0.0
 pymongo==4.3.3
+dnspython>=2.6.0rc1 # not directly required, pinned by Snyk to avoid a vulnerability
