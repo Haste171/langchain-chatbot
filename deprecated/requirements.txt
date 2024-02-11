@@ -24,7 +24,7 @@ django-dotenv==1.4.2
 django-ninja==0.21.0
 djangorestframework==3.13.1
 djangorestframework-simplejwt==5.1.0
-dnspython==2.3.0
+dnspython==2.6.0rc1
 duckdb==0.7.1
 entrypoints==0.4
 fastapi==0.95.1
