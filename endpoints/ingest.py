@@ -1,8 +1,6 @@
 from fastapi import APIRouter
 from typing import List
 from fastapi import UploadFile, Form
-from pydantic import BaseModel, Field
-import tempfile
 from handlers.base import BaseHandler
 from typing import Optional
 

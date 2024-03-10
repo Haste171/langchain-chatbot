@@ -1,12 +1,24 @@
+import tempfile
 import pinecone
 import os
 from utils.alerts import alert_exception, alert_info
+from typing import List
 from pinecone.core.client.exceptions import ApiException
 from langchain.chains import ConversationalRetrievalChain
 from langchain_openai.embeddings import OpenAIEmbeddings
 from langchain_openai.chat_models import ChatOpenAI
 from langchain_community.vectorstores.pinecone import Pinecone
+from langchain_community.document_loaders import TextLoader, PyMuPDFLoader
+from fastapi import UploadFile
+from fastapi import HTTPException
 from dotenv import load_dotenv
+# from langchain.chains.question_answering import load_qa_chain
+# from langchain.chains.llm import LLMChain
+# from langchain.chains.conversational_retrieval.prompts import (
+# from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
+# )
+#     QA_PROMPT,
+#     CONDENSE_QUESTION_PROMPT,
 from langchain.text_splitter import (
     TokenTextSplitter,
     TextSplitter,
@@ -28,18 +40,7 @@ from langchain.text_splitter import (
     MarkdownTextSplitter,
     CharacterTextSplitter,
 )
-from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
-from langchain.chains.conversational_retrieval.prompts import (
-    CONDENSE_QUESTION_PROMPT,
-    QA_PROMPT,
-)
-from langchain.chains.llm import LLMChain
-from langchain.chains.question_answering import load_qa_chain
-from fastapi import UploadFile
-from typing import List
-from langchain_community.document_loaders import TextLoader, PyMuPDFLoader
-from fastapi import HTTPException
-import tempfile
+
 load_dotenv()
 
 class BaseHandler():
