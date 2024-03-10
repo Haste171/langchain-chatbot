@@ -1,18 +1,20 @@
 from fastapi import APIRouter
 from typing import List
-from fastapi import UploadFile
-from pydantic import BaseModel
+from fastapi import UploadFile, Form
+from pydantic import BaseModel, Field
 import tempfile
+from handlers.base import BaseHandler
+from typing import Optional
 
+handler = BaseHandler()
 router = APIRouter()
 
-class IngestModel(BaseModel):
-    files: List[UploadFile]
-    namespace: str = None
 
 @router.post("/ingest")
 async def ingest_documents(
-    ingest_model: IngestModel
+    files: List[UploadFile],
+    namespace: Optional[str] = Form(None), 
 ):
-    for file in ingest_model.files:
-        pass
+    documents = handler.load_documents(files, namespace)
+    handler.ingest_documents(documents)
+    return {"message": "Documents ingested"}
