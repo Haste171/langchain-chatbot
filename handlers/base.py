@@ -163,22 +163,23 @@ class BaseHandler():
             namespace: str
             search_kwargs: dict
         """
-        pinecone.init(api_key=self.pinecone_api_key, environment=self.pinecone_env)
+        try: 
+            pinecone.init(api_key=self.pinecone_api_key, environment=self.pinecone_env)
 
-        vectorstore = Pinecone.from_existing_index(
-            index_name=self.pinecone_index, 
-            embedding=self.embeddings, 
-            text_key='text', 
-            namespace=kwargs.get('namespace', None) # You can only specify a namespace if you have a premium Pinecone pod
-        )
+            vectorstore = Pinecone.from_existing_index(
+                index_name=self.pinecone_index, 
+                embedding=self.embeddings, 
+                text_key='text', 
+                namespace=kwargs.get('namespace', None) # You can only specify a namespace if you have a premium Pinecone pod
+            )
 
-        retriever = vectorstore.as_retriever(search_kwargs=kwargs.get('search_kwargs', {"k": 5}))
+            retriever = vectorstore.as_retriever(search_kwargs=kwargs.get('search_kwargs', {"k": 5}))
 
-        bot = ConversationalRetrievalChain.from_llm(
-            self.llm, 
-            retriever, 
-            return_source_documents=True
-        )
+            bot = ConversationalRetrievalChain.from_llm(
+                self.llm, 
+                retriever, 
+                return_source_documents=True
+            )
 
         # question_generator = LLMChain(llm=self.llm, prompt=CONDENSE_QUESTION_PROMPT)
         # doc_chain = load_qa_chain(self.streaming_llm, chain_type="stuff", prompt=QA_PROMPT)
@@ -191,7 +192,13 @@ class BaseHandler():
         #     return_source_documents=True,
         # )
 
-        result = bot.invoke({"question": query, "chat_history": chat_history})
-        return result
+            result = bot.invoke({"question": query, "chat_history": chat_history})
+            return result
+        except ApiException as e:
+            alert_exception(e, "Pinecone API Error")
+            raise HTTPException(status_code=500, detail=f"Error chatting: {str(e)}")
+        except Exception as e:
+            alert_exception(e, "Error chatting")
+            raise HTTPException(status_code=500, detail=f"Error chatting: {str(e)}")
         # for chunk in result:
         #     yield chunk
