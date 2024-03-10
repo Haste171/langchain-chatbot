@@ -164,6 +164,7 @@ class BaseHandler():
             namespace: str
             search_kwargs: dict
         """
+        alert_info(f"Querying with: {query} and chat history: {chat_history}\nParams: namespace={kwargs.get('namespace', None)}, search_kwargs={kwargs.get('search_kwargs', {'k': 5})}\nModel: {self.llm.model_name} with temperature: {self.llm.temperature}")
         try: 
             pinecone.init(api_key=self.pinecone_api_key, environment=self.pinecone_env)
 
