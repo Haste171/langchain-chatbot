@@ -8,7 +8,7 @@ router = APIRouter()
 class ChatModel(BaseModel):
     query: str
     model: str = "gpt-3.5-turbo"
-    temperature: float = 0.7
+    temperature: float
     chat_history: list[str] = [] # Example input: [("You are a helpful assistant.", "What is your name?")]
     namespace: Optional[str] = None 
 
@@ -24,7 +24,7 @@ async def chat(
     if chat_model.temperature < 0.0 or chat_model.temperature > 2.0:
         raise HTTPException(status_code=400, detail="Invalid temperature value. Please select a value between 0.0 and 2.0")
 
-    handler = BaseHandler(openai_chat_model=chat_model.model, temperature=chat_model.temperature)
+    handler = BaseHandler(openai_chat_model=chat_model.model, openai_chat_temperature=chat_model.temperature)
     response = handler.chat(
         chat_model.query, 
         chat_model.chat_history,
