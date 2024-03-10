@@ -17,6 +17,8 @@ streamlit = "^1.32.0"
 watchdog = "^4.0.0"
 python-multipart = "^0.0.9"
 pymupdf = "^1.23.26"
+fastapi = "^0.110.0"
+uvicorn = "^0.28.0"
 
 
 [build-system]
