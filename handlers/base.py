@@ -58,7 +58,13 @@ class BaseHandler():
             temperature=openai_chat_temperature, 
             openai_api_key=os.getenv('OPENAI_API_KEY')
         )
-
+        # self.streaming_llm = ChatOpenAI(
+        #     model=openai_chat_model,
+        #     streaming=True,
+        #     callbacks=[StreamingStdOutCallbackHandler()],
+        #     temperature=0,
+        #     openai_api_key=os.getenv('OPENAI_API_KEY'),
+        # )
 
         if kwargs.get('embeddings_model') == 'text-embedding-3-large':
             self.embeddings = OpenAIEmbeddings(
@@ -136,7 +142,6 @@ class BaseHandler():
         test_splitter = splitter_map[split_method](chunk_size=chunk_size, chunk_overlap=chunk_overlap)
 
         alert_info(f"Ingesting {len(documents)} document(s)...\nParams: chunk_size={chunk_size}, chunk_overlap={chunk_overlap}, split_method={split_method}")
-
         for document in documents:
             split_document = test_splitter.split_documents(document)  
             try:
@@ -175,6 +180,18 @@ class BaseHandler():
             return_source_documents=True
         )
 
+        # question_generator = LLMChain(llm=self.llm, prompt=CONDENSE_QUESTION_PROMPT)
+        # doc_chain = load_qa_chain(self.streaming_llm, chain_type="stuff", prompt=QA_PROMPT)
+
+        
+        # bot = ConversationalRetrievalChain(
+        #     retriever=retriever,
+        #     combine_docs_chain=doc_chain,
+        #     question_generator=question_generator,
+        #     return_source_documents=True,
+        # )
 
         result = bot.invoke({"question": query, "chat_history": chat_history})
         return result
+        # for chunk in result:
+        #     yield chunk
