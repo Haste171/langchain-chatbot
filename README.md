@@ -23,16 +23,11 @@
 # 🚀 Installation
 
 ## User-Setup
-You can either join the [Discord](https://discord.gg/8vzXR9MGyc) server to use the bot or invite the [Langchain Chatbot](https://discord.com/api/oauth2/authorize?client_id=1113492778899476533&permissions=8&scope=bot) to your own server.
-
-*If not you can following to steps below to setup your own Langchain Chatbot*
+Join the [Discord](https://discord.gg/8vzXR9MGyc) server for help
 
 ## Dev-Setup
 Prerequisites:
 - [Git](https://git-scm.com/downloads) - Free
-- [Docker](https://www.docker.com/products/docker-desktop/) - Free
-- [Discord Bot](https://discord.com/developers/applications) - Free
-- [Mongo Database](https://youtu.be/dnEfQhjZgw0?t=326) - Free
 - [Pinecone Database](https://youtu.be/tp0bQNDtLPc?t=48) - Free
 - [OpenAI API Key](https://platform.openai.com/account/api-keys) - Billing Required
 
@@ -43,32 +38,39 @@ git clone https://github.com/Haste171/langchain-chatbot.git
 
 Reference [example.env](https://github.com/Haste171/langchain-chatbot/blob/main/example.env) to create `.env` file
 ```python
-BOT_TOKEN=
-MONGO_URI=
+OPENAI_API_KEY=
 PINECONE_API_KEY=
-PINECONE_INDEX=
 PINECONE_ENV=
+PINECONE_INDEX=
 ```
 
-*Recommended to use a Docker Container for Deployment*
+### Install Requirements
+
+```python
+poetry install
 ```
-docker build -t langchain-chatbot .
-docker run -d langchain-chatbot
+
+### Activate Environment
+```python
+poetry shell
 ```
+
+### Run Startup
+```python
+python3 startup.py
+```
+
 
 # 🔧 Key Features
 
-✅ Credential Manager (OpenAI Keys)
-
-✅ Space Manager (Ingestions)
-
-✅ Documentation Ingester (For readthedocs.io sites)
+✅ Interactive Ingestion UI for files 
+✅ Chat UI with source, temperature, vector_k, and other parameter changing abilities
+✅ More features coming very soon
 
 
 Soon:
-- Compatibility with multiple files types (Llama Index)
+- Compatibility with many more files types 
 - Compatibility with offline models (HuggingFace, Vicuna, Alpaca)
-- Re-adding PDF Ingester Will be implemented along with docx, doc, excel, etc.
 
 # 💻 Contributing
 
