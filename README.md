@@ -64,7 +64,9 @@ python3 startup.py
 # 🔧 Key Features
 
 ✅ Interactive Ingestion UI for files 
+
 ✅ Chat UI with source, temperature, vector_k, and other parameter changing abilities
+
 ✅ More features coming very soon
 
 
@@ -91,7 +93,7 @@ The LangChain Chatbot was developed by [Haste171](https://github.com/Haste171) w
 The LangChain Chatbot is released under the [MIT License](https://opensource.org/licenses/MIT).
 
 # 💻 Interface
-![fixed-prev](https://cdn.discordapp.com/attachments/1114412425115086888/1114420571833376768/image.png)
-![fixed-prev](https://cdn.discordapp.com/attachments/1114412425115086888/1114421482429354065/image.png)
+![fixed-prev](https://cdn.discordapp.com/attachments/1114412425115086888/1216256420253794325/Screenshot_2024-03-09_at_11.28.25_PM.png?ex=65ffba0f&is=65ed450f&hm=c089e312073c773c886576187322799ba9007421cb8def40e05213805f61e338&)
+![fixed-prev](https://cdn.discordapp.com/attachments/1114412425115086888/1216256419989422110/Screenshot_2024-03-09_at_11.28.37_PM.png?ex=65ffba0f&is=65ed450f&hm=c097a636e2ceef752620e7554880174d6ba81c1281fb15df8b6d1b6c1dd22916&)
 
 Maintained by Developers of [legalyze.ai](https://legalyze.ai)
