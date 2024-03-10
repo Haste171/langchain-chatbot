@@ -9,6 +9,7 @@ class ChatModel(BaseModel):
     query: str
     model: str = "gpt-3.5-turbo"
     temperature: float
+    vector_fetch_k: Optional[int] = 5 # Number of vectors to fetch from Pinecone as source documents
     chat_history: list[str] = [] # Example input: [("You are a helpful assistant.", "What is your name?")]
     namespace: Optional[str] = None 
 
@@ -28,7 +29,8 @@ async def chat(
     response = handler.chat(
         chat_model.query, 
         chat_model.chat_history,
-        namespace=(chat_model.namespace or None)
+        namespace=(chat_model.namespace or None),
+        search_kwargs=({"k": chat_model.vector_fetch_k} or {"k": 5})
     )
     return {"response": response}
     

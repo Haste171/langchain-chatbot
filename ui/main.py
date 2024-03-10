@@ -24,6 +24,7 @@ def chat_page():
     ["gpt-3.5-turbo", "gpt-3.5-turbo-16k", "gpt-4", "gpt-4-32k", "gpt-4-1106-preview"]
     )
     temperature = st.slider("Temperature", 0.0, 2.0, 0.7)
+    source_documents = st.slider("Number of Source Documents", 1, 10, 5)
 
     
     if api_endpoint:
@@ -33,6 +34,7 @@ def chat_page():
                 "chat_history": [],
                 "model": model_selector,
                 "temperature": temperature,
+                "vector_fetch_k": source_documents,
                 "namespace": namespace if namespace else None
             }
 
