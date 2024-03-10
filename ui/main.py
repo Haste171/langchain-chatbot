@@ -75,7 +75,7 @@ def ingest_page():
 
 def main():
     st.sidebar.title("Navigation")
-    tabs = ["Chat", "Ingestion"]
+    tabs = ["Ingestion", "Chat"]
     selected_tab = st.sidebar.radio("Go to", tabs)
 
     if selected_tab == "Chat":
