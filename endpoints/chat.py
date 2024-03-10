@@ -8,7 +8,7 @@ handler = BaseHandler()
 
 class ChatModel(BaseModel):
     query: str
-    chat_history: list[str] = []
+    chat_history: list[str] = [] # Example input: [("You are a helpful assistant.", "What is your name?")]
     namespace: Optional[str] = None 
 
 @router.post("/chat")
