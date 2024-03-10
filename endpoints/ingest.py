@@ -6,8 +6,8 @@ import tempfile
 from handlers.base import BaseHandler
 from typing import Optional
 
-handler = BaseHandler()
 router = APIRouter()
+handler = BaseHandler()
 
 
 @router.post("/ingest")

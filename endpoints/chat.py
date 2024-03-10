@@ -1,7 +1,9 @@
 from fastapi import APIRouter
 from pydantic import BaseModel
+from handlers.base import BaseHandler
 
 router = APIRouter()
+handler = BaseHandler()
 
 class ChatModel(BaseModel):
     query: str
