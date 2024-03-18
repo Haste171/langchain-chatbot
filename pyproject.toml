@@ -20,6 +20,7 @@ pymupdf = "^1.23.26"
 fastapi = "^0.110.0"
 uvicorn = "^0.28.0"
 langchain-anthropic = "^0.1.4"
+docx2txt = "^0.8"
 
 
 [build-system]

@@ -9,7 +9,7 @@ from langchain_openai.embeddings import OpenAIEmbeddings
 from langchain_openai.chat_models import ChatOpenAI
 from langchain_anthropic import ChatAnthropic
 from langchain_community.vectorstores.pinecone import Pinecone
-from langchain_community.document_loaders import TextLoader, PyMuPDFLoader
+from langchain_community.document_loaders import TextLoader, PyMuPDFLoader, Docx2txtLoader
 from fastapi import UploadFile
 from fastapi import HTTPException
 from dotenv import load_dotenv
@@ -91,7 +91,8 @@ class BaseHandler():
 
         loader_map = {
             'txt': TextLoader,
-            'pdf': PyMuPDFLoader
+            'pdf': PyMuPDFLoader, 
+            'docx': Docx2txtLoader,
         }
 
         allowed_extensions = [key for key in loader_map.keys()]
