@@ -47,7 +47,7 @@ load_dotenv()
 class BaseHandler():
     def __init__(
             self,
-            chat_model: str, 
+            chat_model: str = 'gpt-3.5-turbo',
             temperature: float = 0.7,
             **kwargs
         ):
