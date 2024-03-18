@@ -7,6 +7,7 @@ from pinecone.core.client.exceptions import ApiException
 from langchain.chains import ConversationalRetrievalChain
 from langchain_openai.embeddings import OpenAIEmbeddings
 from langchain_openai.chat_models import ChatOpenAI
+from langchain_anthropic import ChatAnthropic
 from langchain_community.vectorstores.pinecone import Pinecone
 from langchain_community.document_loaders import TextLoader, PyMuPDFLoader
 from fastapi import UploadFile
@@ -46,19 +47,24 @@ load_dotenv()
 class BaseHandler():
     def __init__(
             self,
-            openai_chat_model: str ='gpt-3.5-turbo', 
-            openai_chat_temperature: float = 0.7,
+            chat_model: str, 
+            temperature: float = 0.7,
             **kwargs
         ):
 
         self.pinecone_api_key = os.getenv('PINECONE_API_KEY')
         self.pinecone_env = os.getenv('PINECONE_ENV')
         self.pinecone_index = os.getenv('PINECONE_INDEX')
-        self.llm = ChatOpenAI(
-            model=openai_chat_model, 
-            temperature=openai_chat_temperature, 
-            openai_api_key=os.getenv('OPENAI_API_KEY')
-        )
+        self.llm_map = {
+            'gpt-4': ChatOpenAI(model='gpt-4', temperature=temperature, openai_api_key=os.getenv('OPENAI_API_KEY')),
+            'gpt-4-32k': ChatOpenAI(model='gpt-4-32k', temperature=temperature, openai_api_key=os.getenv('OPENAI_API_KEY')),
+            'gpt-4-1106-preview': ChatOpenAI(model='gpt-4', temperature=temperature, openai_api_key=os.getenv('OPENAI_API_KEY')),
+            'gpt-3.5-turbo-16k': ChatOpenAI(model='gpt-3.5-turbo-16k', temperature=temperature, openai_api_key=os.getenv('OPENAI_API_KEY')),
+            'gpt-3.5-turbo': ChatOpenAI(model='gpt-3.5-turbo', temperature=temperature, openai_api_key=os.getenv('OPENAI_API_KEY')),
+            'claude-3-sonnet-20240229': ChatAnthropic(model_name='claude-3-sonnet-20240229', temperature=temperature, anthropic_api_key=os.getenv('ANTHROPIC_API_KEY')),
+            'claude-3-opus-20240229': ChatAnthropic(model_name='claude-3-opus-20240229', temperature=temperature, anthropic_api_key=os.getenv('ANTHROPIC_API_KEY')),
+        }
+        self.chat_model = chat_model
         # self.streaming_llm = ChatOpenAI(
         #     model=openai_chat_model,
         #     streaming=True,
@@ -164,7 +170,7 @@ class BaseHandler():
             namespace: str
             search_kwargs: dict
         """
-        alert_info(f"Querying with: {query} and chat history: {chat_history}\nParams: namespace={kwargs.get('namespace', None)}, search_kwargs={kwargs.get('search_kwargs', {'k': 5})}\nModel: {self.llm.model_name} with temperature: {self.llm.temperature}")
+        # alert_info(f"Querying with: {query} and chat history: {chat_history}\nParams: namespace={kwargs.get('namespace', None)}, search_kwargs={kwargs.get('search_kwargs', {'k': 5})}\nModel: {self.llm.model_name} with temperature: {self.llm.temperature}")
         try: 
             pinecone.init(api_key=self.pinecone_api_key, environment=self.pinecone_env)
 
@@ -178,7 +184,7 @@ class BaseHandler():
             retriever = vectorstore.as_retriever(search_kwargs=kwargs.get('search_kwargs', {"k": 5}))
 
             bot = ConversationalRetrievalChain.from_llm(
-                self.llm, 
+                self.llm_map[self.chat_model], 
                 retriever, 
                 return_source_documents=True
             )
@@ -186,7 +192,6 @@ class BaseHandler():
         # question_generator = LLMChain(llm=self.llm, prompt=CONDENSE_QUESTION_PROMPT)
         # doc_chain = load_qa_chain(self.streaming_llm, chain_type="stuff", prompt=QA_PROMPT)
 
-        
         # bot = ConversationalRetrievalChain(
         #     retriever=retriever,
         #     combine_docs_chain=doc_chain,
