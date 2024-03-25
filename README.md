@@ -1,8 +1,10 @@
 <p align="center">
 <br><br><br>
-<a https://github.com/Haste171/langchain-chatbot/stargazers"><img src="https://cdn.discordapp.com/attachments/1114412425115086888/1216255681204588554/f.png?ex=65ffb95f&is=65ed445f&hm=b7def770f0dd14cb563162621a2994a9cc941dc87bc2f9a356c7b42c3d0f2a39&" width="760px" length="400"></a>
+<a https://github.com/Haste171/langchain-chatbot/stargazers"><img src="https://github.com/Haste171/langchain-chatbot/assets/34923485/9bc2b4a3-f19e-4ca0-9a4b-f6db4715ae38" width="760px" length="400"></a>
 <br><br><br>
 </p>
+
+
 
 <p align="center">
 <b>Efficiently use Langchain for Complex Tasks</b>
