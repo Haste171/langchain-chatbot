@@ -12,7 +12,7 @@
 
 <p align=center>
 <a href="https://github.com/Haste171/langchain-chatbot/releases"><img src="https://badgen.net/github/release/Haste171/langchain-chatbot">
-<a href="https://gitHub.com/Haste171/langchain-chatbot/graphs/commit-activity"><img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg">
+<a href="https://gitHub.com/Haste171/langchain-chatbot/graphs/commit-activity"><img src="https://img.shields.io/badge/Maintained%3F-no-red.svg">
 <a href="https://github.com/Haste171/langchain-chatbot/blob/master/LICENSE"><img src="https://img.shields.io/github/license/Haste171/langchain-chatbot">
 <a href="https://discord.gg/KgmN4FPxxT"><img src="https://dcbadge.vercel.app/api/server/KgmN4FPxxT?compact=true&style=flat"></a>
 
@@ -94,6 +94,3 @@ The LangChain Chatbot was developed by [Haste171](https://github.com/Haste171) w
 
 The LangChain Chatbot is released under the [MIT License](https://opensource.org/licenses/MIT).
 
-# 💻 Interface
-![fixed-prev](https://cdn.discordapp.com/attachments/1114412425115086888/1216256420253794325/Screenshot_2024-03-09_at_11.28.25_PM.png?ex=65ffba0f&is=65ed450f&hm=c089e312073c773c886576187322799ba9007421cb8def40e05213805f61e338&)
-![fixed-prev](https://cdn.discordapp.com/attachments/1114412425115086888/1216256419989422110/Screenshot_2024-03-09_at_11.28.37_PM.png?ex=65ffba0f&is=65ed450f&hm=c097a636e2ceef752620e7554880174d6ba81c1281fb15df8b6d1b6c1dd22916&)
