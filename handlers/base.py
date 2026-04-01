@@ -55,6 +55,7 @@ class BaseHandler():
         self.pinecone_api_key = os.getenv('PINECONE_API_KEY')
         self.pinecone_env = os.getenv('PINECONE_ENV')
         self.pinecone_index = os.getenv('PINECONE_INDEX')
+        _minimax_temperature = max(0.01, min(temperature, 1.0))
         self.llm_map = {
             'gpt-4': lambda: ChatOpenAI(model='gpt-4', temperature=temperature, openai_api_key=os.getenv('OPENAI_API_KEY')),
             'gpt-4-32k': lambda: ChatOpenAI(model='gpt-4-32k', temperature=temperature, openai_api_key=os.getenv('OPENAI_API_KEY')),
@@ -63,6 +64,10 @@ class BaseHandler():
             'gpt-3.5-turbo': lambda: ChatOpenAI(model='gpt-3.5-turbo', temperature=temperature, openai_api_key=os.getenv('OPENAI_API_KEY')),
             'claude-3-sonnet-20240229': lambda: ChatAnthropic(model_name='claude-3-sonnet-20240229', temperature=temperature, anthropic_api_key=os.getenv('ANTHROPIC_API_KEY')),
             'claude-3-opus-20240229': lambda: ChatAnthropic(model_name='claude-3-opus-20240229', temperature=temperature, anthropic_api_key=os.getenv('ANTHROPIC_API_KEY')),
+            'MiniMax-M2.7': lambda t=_minimax_temperature: ChatOpenAI(model='MiniMax-M2.7', temperature=t, openai_api_key=os.getenv('MINIMAX_API_KEY'), openai_api_base='https://api.minimax.io/v1'),
+            'MiniMax-M2.7-highspeed': lambda t=_minimax_temperature: ChatOpenAI(model='MiniMax-M2.7-highspeed', temperature=t, openai_api_key=os.getenv('MINIMAX_API_KEY'), openai_api_base='https://api.minimax.io/v1'),
+            'MiniMax-M2.5': lambda t=_minimax_temperature: ChatOpenAI(model='MiniMax-M2.5', temperature=t, openai_api_key=os.getenv('MINIMAX_API_KEY'), openai_api_base='https://api.minimax.io/v1'),
+            'MiniMax-M2.5-highspeed': lambda t=_minimax_temperature: ChatOpenAI(model='MiniMax-M2.5-highspeed', temperature=t, openai_api_key=os.getenv('MINIMAX_API_KEY'), openai_api_base='https://api.minimax.io/v1'),
         }
         self.chat_model = chat_model
         # self.streaming_llm = ChatOpenAI(
