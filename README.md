@@ -24,9 +24,6 @@
 
 # 🚀 Installation
 
-## User-Setup
-Join the [Discord](https://discord.gg/8vzXR9MGyc) server for help
-
 ## Dev-Setup
 Prerequisites:
 - [Git](https://git-scm.com/downloads) - Free
