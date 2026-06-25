@@ -30,6 +30,14 @@ Prerequisites:
 - [Pinecone Database](https://youtu.be/tp0bQNDtLPc?t=48) - Free
 - [OpenAI API Key](https://platform.openai.com/account/api-keys) - Billing Required
 
+### Supported LLM Providers
+
+| Provider | Models |
+|----------|--------|
+| OpenAI | gpt-3.5-turbo, gpt-3.5-turbo-16k, gpt-4, gpt-4-32k, gpt-4-1106-preview |
+| Anthropic | claude-3-sonnet-20240229, claude-3-opus-20240229 |
+| [MiniMax](https://www.minimax.io) | MiniMax-M2.7, MiniMax-M2.7-highspeed, MiniMax-M2.5, MiniMax-M2.5-highspeed (204K context) |
+
 ### Setup
 ```
 git clone https://github.com/Haste171/langchain-chatbot.git
@@ -38,6 +46,8 @@ git clone https://github.com/Haste171/langchain-chatbot.git
 Reference [example.env](https://github.com/Haste171/langchain-chatbot/blob/main/example.env) to create `.env` file
 ```python
 OPENAI_API_KEY=
+ANTHROPIC_API_KEY=
+MINIMAX_API_KEY=      # Get from https://www.minimax.io
 PINECONE_API_KEY=
 PINECONE_ENV=
 PINECONE_INDEX=
